@@ -10,8 +10,6 @@ data class Pet(
     @PrimaryKey
     val id: String,
 
-    val type: String = "cat",       // cat or dog
-
     @ColumnInfo(name = "name")
     val name: String = "Васька",
 
