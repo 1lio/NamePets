@@ -1,25 +1,20 @@
 package name.pet.data.repository
 
-import name.pet.data.model.Pet
-import java.util.ArrayList
+import android.content.Context
+import androidx.room.Room
 
-class PetRepository : PetDB {
+class PetRepository(context: Context) {
 
-    override fun getCats(gender: Boolean): ArrayList<Pet> {
-        return arrayListOf()
-    }
+    private val db = Room
+        .databaseBuilder(context, AppDatabase::class.java, "pets")
+        .build()
 
-    override fun getDogs(gender: Boolean): ArrayList<Pet> {
-        return arrayListOf()
-    }
 
-    override fun getRandomName(type: Boolean, gender: Boolean): String {
+    fun getRandomName(type: Boolean, gender: Int): String {
+
+        if (type) db.petDao().getCats(gender) else db.petDao().getDogs(gender)
+
         return "Васька"
-    }
-
-
-    companion object {
-        fun getInstance () = PetRepository()
     }
 
 }
