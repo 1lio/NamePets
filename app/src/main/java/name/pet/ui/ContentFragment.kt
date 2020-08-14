@@ -8,8 +8,7 @@ import name.pet.data.repository.PetRepository
 
 class ContentFragment : Fragment(R.layout.content) {
 
-    private val repo = PetRepository.getInstance()
-
+    private val repo = PetRepository(context!!.applicationContext)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
