@@ -14,5 +14,5 @@ data class Pet(
     val name: String = "Васька",
 
     @ColumnInfo(name = "gender")
-    val gender: Boolean = true      // true is male other female
+    val gender: Int = 1      // 1 is male other female
 )
