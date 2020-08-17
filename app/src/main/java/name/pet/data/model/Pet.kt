@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 data class Pet(
 
     @PrimaryKey
-    val id: String,
+    @ColumnInfo(name = "id")
+    val id: Int,
 
     @ColumnInfo(name = "name")
     val name: String = "Васька",
