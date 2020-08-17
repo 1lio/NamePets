@@ -15,7 +15,6 @@ class ContentFragment : Fragment() {
 
     private lateinit var db: AppDatabase
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -26,20 +25,13 @@ class ContentFragment : Fragment() {
             .build()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, container, state)
         return inflater.inflate(R.layout.content, container, false)
     }
 
-    fun getRandomName(type: Int, gender: Int): String {
-
+    private fun getRandomName(type: Int, gender: Int): String {
         if (type == 1) db.petDao().getCats(gender) else db.petDao().getDogs(gender)
-
         return "Васька"
     }
 
