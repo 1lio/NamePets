@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <RadioGroup
+        android:id="@+id/radioGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/def_padding"
@@ -21,6 +22,7 @@
             android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/male" />
 
         <RadioButton
@@ -54,6 +56,7 @@
             android:id="@+id/cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/cat" />
 
         <RadioButton
