@@ -8,12 +8,13 @@ import androidx.room.PrimaryKey
 data class Pet(
 
     @PrimaryKey
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "_id")
     val id: Int,
 
-    @ColumnInfo(name = "name")
-    val name: String = "Васька",
-
     @ColumnInfo(name = "gender")
-    val gender: Int = 1      // 1 is male other female
+    val gender: Int = 1,      // 1 is male other female,
+
+    @ColumnInfo(name = "name")
+    val name: String = "Васька"
+
 )
