@@ -2,10 +2,42 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b014bab7be6742caa99fd8b2c9255d76",
+    "identityHash": "2c07f380997413346d3ca48f099d2c7f",
     "entities": [
       {
         "tableName": "cats",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `gender` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "dogs",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `gender` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`_id`))",
         "fields": [
           {
@@ -40,7 +72,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b014bab7be6742caa99fd8b2c9255d76')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2c07f380997413346d3ca48f099d2c7f')"
     ]
   }
 }

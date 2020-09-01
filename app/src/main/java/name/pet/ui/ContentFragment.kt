@@ -19,8 +19,10 @@ class ContentFragment : Fragment(R.layout.content) {
 
     private fun getRandomName(type: Int, gender: Int): String {
 
-        val list = db.petDao().getCats(gender)
-        val random = Random.nextInt(0, list.size - 1)
+        val dao = db.petDao()
+        val list = dao.getCats()
+
+        val random = Random.nextInt(0, list.size)
 
         val pet = list[random]
         return pet.name
@@ -31,8 +33,8 @@ class ContentFragment : Fragment(R.layout.content) {
 
         btnPetName.setOnClickListener {
             val randomName = getRandomName(
-                radioAnimal.checkedRadioButtonId,
-                radioGender.checkedRadioButtonId
+                0,
+                0
             )
 
             petName.text = randomName
