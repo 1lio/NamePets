@@ -17,7 +17,7 @@ class ContentFragment : Fragment(R.layout.content) {
         db = AppDatabase.getInstance(context!!.applicationContext)
     }
 
-    private fun getRandomName(type: Int, gender: Int): String {
+    private fun getRandomName(): String {
 
         val dao = db.petDao()
         val list = dao.getCats()
@@ -32,10 +32,7 @@ class ContentFragment : Fragment(R.layout.content) {
         super.onViewCreated(view, savedInstanceState)
 
         btnPetName.setOnClickListener {
-            val randomName = getRandomName(
-                0,
-                0
-            )
+            val randomName = getRandomName()
 
             petName.text = randomName
         }

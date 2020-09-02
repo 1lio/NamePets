@@ -13,7 +13,7 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
 
         private const val DB_NAME = "names"
-        private const val DB_DIR = "databases/names.db"
+        private const val DB_DIR = "names.db"
 
         fun getInstance(context: Context): AppDatabase {
             return Room
