@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.content.*
+import name.pet.App
 import name.pet.R
 import name.pet.data.repository.AppDatabase
 import kotlin.random.Random
@@ -14,7 +15,7 @@ class ContentFragment : Fragment(R.layout.content) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        db = AppDatabase.getInstance(requireContext())
+        db = App.getDatabase()
     }
 
     private fun getRandomName(petType: Int, petGender: Int): String {
