@@ -7,6 +7,20 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AppDatabase.getInstance(this)
+        instance = this
+        database = AppDatabase.getInstance(this)
+    }
+
+    companion object {
+
+        private var instance: App? = null
+
+        private var database: AppDatabase? = null
+
+        fun getDatabase(): AppDatabase {
+            if (database == null) database = AppDatabase.getInstance(instance!!)
+
+            return database!!
+        }
     }
 }
