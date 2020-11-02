@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Кличка питомца</string>
+    <string name="gen_name">Новое имя</string>
+    <string name="dog">Собака</string>
+    <string name="cat">Кошка</string>
+    <string name="female">девочка</string>
+    <string name="male">мальчик</string>
 </resources>
