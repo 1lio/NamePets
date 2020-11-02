@@ -1,10 +1,12 @@
 package name.pet.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.content.*
 import name.pet.R
+import name.pet.data.model.Pet
 import name.pet.data.repository.AppDatabase
 import kotlin.random.Random
 
@@ -17,14 +19,18 @@ class ContentFragment : Fragment(R.layout.content) {
         db = AppDatabase.getInstance(context!!.applicationContext)
     }
 
-    private fun getRandomName(): String {
+    private fun getRandomName(animal: Int, gender: Int): String {
+        val listPet = if (animal == 0) {
+            val catsDao = db.catsDao()
+            catsDao.getCats(gender)
+        } else {
+            val dogsDao = db.dogsDao()
+            dogsDao.getDogs(gender)
+        }
 
-        val dao = db.petDao()
-        val list = dao.getCats()
+        val random = Random.nextInt(0, listPet.size)
 
-        val random = Random.nextInt(0, list.size)
-
-        val pet = list[random]
+        val pet = listPet[random]
         return pet.name
     }
 
@@ -32,8 +38,12 @@ class ContentFragment : Fragment(R.layout.content) {
         super.onViewCreated(view, savedInstanceState)
 
         btnPetName.setOnClickListener {
-            val randomName = getRandomName()
-
+            val randomName = getRandomName(
+                if (cat.isChecked) 0
+                else 1,
+                if (male.isChecked) 1
+                else 0
+            )
             petName.text = randomName
         }
 

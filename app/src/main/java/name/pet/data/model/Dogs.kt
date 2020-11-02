@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "dogs")
-data class PetDog(
+data class Dogs(
 
     @PrimaryKey
     @ColumnInfo(name = "_id")
@@ -15,6 +15,6 @@ data class PetDog(
     val gender: Int = 1,      // 1 is male other female,
 
     @ColumnInfo(name = "name")
-    val name: String = "Васька"
+    override val name: String = "Васька"
 
-)
+) : Pet(name)

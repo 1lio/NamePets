@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import name.pet.data.model.Pet
-import name.pet.data.model.PetDog
+import name.pet.data.model.Cats
+import name.pet.data.model.Dogs
 
-@Database(entities = [Pet::class, PetDog::class], version = 1)
+@Database(entities = [Cats::class, Dogs::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
@@ -26,5 +26,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     }
 
-    abstract fun petDao(): PetDao
+    abstract fun catsDao(): CatsDao
+    abstract fun dogsDao(): DogsDao
 }
