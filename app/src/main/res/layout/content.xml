@@ -32,15 +32,37 @@
             android:text="@string/female" />
     </RadioGroup>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src=""/>
+
     <TextView
         android:id="@+id/petName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503"
         tools:text="Васька!" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_oval"
+        android:padding="8dp"
+        android:src="@drawable/ic_baseline_content_copy_24"
+        app:layout_constraintBottom_toBottomOf="@+id/petName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/petName"
+        app:layout_constraintTop_toTopOf="@+id/petName" />
 
     <RadioGroup
         android:id="@+id/radioAnimal"
@@ -68,10 +90,15 @@
 
     <Button
         android:id="@+id/btnPetName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/button_padding"
+        android:background="@drawable/button"
+        android:padding="16dp"
         android:text="@string/gen_name"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petName" />
