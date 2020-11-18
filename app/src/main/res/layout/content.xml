@@ -33,16 +33,21 @@
     </RadioGroup>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src=""/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_kot"
+        app:layout_constraintBottom_toTopOf="@+id/petName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.79" />
 
     <TextView
         android:id="@+id/petName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="@android:color/white"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
