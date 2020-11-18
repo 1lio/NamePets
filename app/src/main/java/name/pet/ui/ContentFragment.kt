@@ -18,12 +18,12 @@ class ContentFragment : Fragment(R.layout.content) {
         db = App.getDatabase()
     }
 
-    private fun getRandomName(petType: Int, petGender: Int): String {
-
-        val listPet = if (petType == 0) {
-            db.catsDao().getCats(petGender)
+    private fun getRandomName(petType: Boolean, petGender: Boolean): String {
+        val gender = if (petGender) 1 else 0
+        val listPet = if (!petType) {
+            db.catsDao().getCats(gender)
         } else {
-            db.dogsDao().getDogs(petGender)
+            db.dogsDao().getDogs(gender)
         }
 
         val random = Random.nextInt(0, listPet.size)
@@ -31,16 +31,19 @@ class ContentFragment : Fragment(R.layout.content) {
         return listPet[random].name
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        randomName()
         btnPetName.setOnClickListener {
-            val randomName = getRandomName(
-                if (cat.isChecked) 0 else 1,
-                if (male.isChecked) 1 else 0
-            )
-            petName.text = randomName
+            randomName()
         }
-
     }
+
+    private fun randomName() {
+        petName.text = getRandomName(!cat.isChecked, male.isChecked)
+    }
+
 }
+
+
