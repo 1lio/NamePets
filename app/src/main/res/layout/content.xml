@@ -10,8 +10,8 @@
         android:id="@+id/radioGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/def_padding"
-        android:layout_marginEnd="@dimen/def_padding"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -33,21 +33,29 @@
     </RadioGroup>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src=""/>
+        android:id="@+id/pets"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btnPetName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petName"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_kot" />
 
     <TextView
         android:id="@+id/petName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginTop="148dp"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pets"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.503"
+        app:layout_constraintTop_toBottomOf="@+id/radioGender"
         tools:text="Васька!" />
 
     <ImageView
@@ -62,14 +70,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/petName"
-        app:layout_constraintTop_toTopOf="@+id/petName" />
+        app:layout_constraintTop_toTopOf="@+id/petName"
+        tools:ignore="ContentDescription" />
 
     <RadioGroup
         android:id="@+id/radioAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/def_padding"
-        android:layout_marginTop="@dimen/def_padding"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -92,7 +101,6 @@
         android:id="@+id/btnPetName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_padding"
         android:background="@drawable/button"
         android:padding="16dp"
         android:text="@string/gen_name"
@@ -100,7 +108,8 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petName" />
+        app:layout_constraintTop_toBottomOf="@+id/pets" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

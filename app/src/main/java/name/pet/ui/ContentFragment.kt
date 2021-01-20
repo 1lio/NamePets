@@ -21,8 +21,17 @@ class ContentFragment : Fragment(R.layout.content) {
     private fun getRandomName(petType: Boolean, petGender: Boolean): String {
         val gender = if (petGender) 1 else 0
         val listPet = if (!petType) {
+            pets.apply {
+                setImageResource(R.drawable.ic_kot)
+                visibility = View.VISIBLE
+            }
+
             db.catsDao().getCats(gender)
         } else {
+            pets.apply {
+                setImageResource(R.drawable.ic_sobak)
+                visibility = View.VISIBLE
+            }
             db.dogsDao().getDogs(gender)
         }
 
